@@ -6,7 +6,7 @@ const bodyparser = require('body-parser');
 
 router.use(bodyparser.json());
 
-//router.use(cors());
+router.use(cors());
 
 router.get('/', main.index);
 router.get('/messenger/userwebhook', messenger.webhookVerify);
