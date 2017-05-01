@@ -7,11 +7,11 @@ module.exports = {
         let senderId =  event.sender.id;
         let receiverId = event.recipient.id;
         if(event.message.text){
-            if(event.message.text == 'Enter valid email please...' || event.message.text == "Hi!\r\nWelcome to OutgrowCo.\r\n Let's know a little more about you.\r\nWhat is your email ?" || event.message.text == 'Only Support Text and Nothing Else' || event.message.text == 'Ok...' || event.message.text == "What is your name ?" || event.message.text == "Kindly have a look at:\r\n //resources.outgrow.co/about"){
+            if(event.message.text == 'Your email address is invalid.\r\nPlease Enter a valid email address' || event.message.text == "Hi!\r\nWelcome to OutgrowCo.\r\n Let's know a little more about you.\r\nWhat is your email ?" || event.message.text == 'Only Support Text and Nothing Else' || event.message.text == 'Ok...' || event.message.text == "What is your name ?" || event.message.text == "Kindly have a look at:\r\n //resources.outgrow.co/about"){
                 lastMsg = event.message.text;
                 console.log('My Own Message Come');
             }
-            else if(lastMsg == "Hi!\r\nWelcome to OutgrowCo.\r\n Let's know a little more about you.\r\nWhat is your email ?" || lastMsg == 'Enter valid email please...'){
+            else if(lastMsg == "Hi!\r\nWelcome to Outgrow.\r\n Let's know a little more about you.\r\nWhat is your email ?" || lastMsg == 'Your email address is invalid.\r\nPlease Enter a valid email address'){
                     console.log('Email: ', event.message.text);
                     if(regex.test(event.message.text) != true){
                         validEmailAlert(senderId, accessToken);
@@ -74,7 +74,7 @@ function sendTextMessage(recipientId,accessToken, i) {
                 id: recipientId
             },
             message:{
-                text: 'Kindly have a look at:\r\n //resources.outgrow.co/about'
+                text: 'Thank you for your time.\r\nFor more information about Outgrow kindly have a look at:\r\n //resources.outgrow.co/about'
             }
         }
     }
@@ -84,7 +84,7 @@ function sendTextMessage(recipientId,accessToken, i) {
                 id: recipientId
             },
             message: {
-                text: 'Ok...'
+                text: 'Your query will be handle by our supervisor.\r\nPlease wait...'
             }
         };
     }
@@ -99,7 +99,7 @@ function validEmailAlert(recipientId, accessToken){
             id: recipientId
         },
         message:{
-            text:'Enter valid email please...'
+            text:'Your email address is invalid.\r\nPlease Enter a valid email address'
         }
     }
     console.log('Email Alert Call');
