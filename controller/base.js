@@ -2,6 +2,6 @@
 
 module.exports = {
     index: (req, res) => {
-        res.json({success: true, message: "Main#index"});
+        res.json({success: false, message: "Main#index"});
     }
 };
